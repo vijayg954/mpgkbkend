@@ -20,12 +20,15 @@ DbConnect();
 const PORT = process.env.PORT || 3001;
 
 // Routes
-app.use("/api/v1/enggrammar/oneliner", oneLinerRoutes);
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+app.use("/api/v1/mpgk/oneliner", oneLinerRoutes);
 
-app.use("/api/v1/class12eng/quiz", quizRoutes);
-app.use("/api/v1/class12eng2/quiz", quizRoutes);
-app.use("/api/v1/enggrammar/quiz", quizRoutes);
-app.use("/api/v1/poems/quiz", quizRoutes);
+app.use("/api/v1/mpgk/quiz", quizRoutes);
+// app.use("/api/v1/class12eng2/quiz", quizRoutes);
+// app.use("/api/v1/enggrammar/quiz", quizRoutes);
+// app.use("/api/v1/poems/quiz", quizRoutes);
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`App is listening on ${PORT}`);
