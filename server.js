@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import DbConnect from "./config/Db.js";
 
-// import oneLinerRoutes from "./routes/oneLinerroutes.js";
+import oneLinerRoutes from "./routes/oneLinerroutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
 
 import dns from "node:dns/promises";
@@ -20,6 +20,8 @@ DbConnect();
 const PORT = process.env.PORT || 3001;
 
 // Routes
+app.use("/api/v1/enggrammar/oneliner", oneLinerRoutes);
+
 app.use("/api/v1/class12eng/quiz", quizRoutes);
 app.use("/api/v1/class12eng2/quiz", quizRoutes);
 app.use("/api/v1/enggrammar/quiz", quizRoutes);
